@@ -1,0 +1,62 @@
+/**
+*
+*    Name: main.scss
+*
+**/
+@import url(./lib/materialize.min.css);
+/**
+*
+*    Name: style.scss
+*
+**/
+body {
+  background: #729f98;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
+
+nav {
+  background: #729f98; }
+  nav .logo {
+    font-size: 25px; }
+
+.page {
+  display: flex; }
+  .page__sidebar {
+    width: 15%;
+    min-width: 100px;
+    position: fixed;
+    background: #303030;
+    height: 100%;
+    padding: 30px; }
+    .page__sidebar .side-menu__item {
+      text-align: center;
+      margin: 30px 0; }
+      .page__sidebar .side-menu__item a {
+        color: #f3f3f3;
+        transition: all .2s; }
+        .page__sidebar .side-menu__item a:hover {
+          color: #aa863a; }
+  .page__inner {
+    width: 100%;
+    padding-left: 15%;
+    text-align: center; }
+    .page__inner .title {
+      font-size: 25px; }
+    .page__inner .content {
+      padding: 20px; }
+
+.page-footer {
+  background: #aa863a;
+  bottom: 0;
+  padding: 20px;
+  text-align: center;
+  padding-left: 15%; }
+  @media (max-width: 600px) {
+    .page-footer {
+      text-align: right; } }
+
+/*# sourceMappingURL=main.css.map */
