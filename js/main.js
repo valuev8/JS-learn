@@ -1,25 +1,22 @@
-function timerFirst() {
-  let i = 1;
-  let timerId = setTimeout(function count() {
-    console.log(i);
-    ++i;
-    if (i == 11) {
-      return;
-    }
-    timerId = setTimeout(count, 100)
-  }, 100)  
-}
-
-function timerSecond() { 
-  let i = 1;
-  let timerId = setInterval(function() {
-  console.log(i);
-  i++;
-  if (i == 11) {
-      clearTimeout(timerId);
+var maths = {
+   number: 4,
+   result: result = this.number,
+   sum: function() {
+       this.result = this.number + this.number
+       return this;
+   },
+   minus: function() {
+       this.result = this.result - this.number
+       return this;
+   },
+   mul: function() {
+       this.result = this.result * this.number
+       return this;
+   },
+   showResult: function() {
+       alert(this.result)
+       return this;
    }
-  }, 100);
-}
+};
 
-timerFirst()
-timerSecond()
+maths.sum().sum().minus().multiplay().showResult();
