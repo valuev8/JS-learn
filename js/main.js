@@ -1,59 +1,28 @@
-let studentsList = [
-  {
-  name: "Ivan Petrovich",
-  start: 2000,
-  end: 2005
-  },
-  {
-  name: "Elon Musk",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Steve Jobs",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Petro Poroshenko",
-  start: 2016,
-  end: 2020
-  },
-  {
-  name: "Donald Trump",
-  start: 2010,
-  end: 2015
-  },
-  {
-  name: "Elton John",
-  start: 2000,
-  end: 2005
-  },
-  {
-  name: "Anton Valuiev",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Elizabeth II",
-  start: 1930,
-  end: 1935
-  },
-]
-
-var calcStudents = function(start,end) {
-  let result = [];
-  for (let i = 0; i < studentsList.length; i++) {
-    if (studentsList[i].start == start && studentsList[i].end == end) {
-      result.push(studentsList[i].name);
-    }
+function sum() {
+  let result = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    result += arguments[i]
   }
-  
-  if (result[0] === undefined) {
-    result = "Nobody";
-  }
-  
   return result;
 }
 
-console.log(calcStudents(2015, 2019))
+function mul() {
+  let result = 1;
+  
+  if (arguments.length == 0) {
+    return "Числа не введены"
+  }
+  
+  for (let i = 0; i < arguments.length; i++) {
+    result *= arguments[i]
+  }
+  return result;
+}
+
+
+function applyAll(func) {
+  var newArr = [arguments].slice.call(arguments,1);
+  return func.apply(this, newArr);
+ }
+
+console.log(applyAll(mul,5,5))
