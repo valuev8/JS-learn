@@ -19,4 +19,4 @@ var maths = {
    }
 };
 
-maths.sum().sum().minus().multiplay().showResult();
+maths.sum().sum().minus().mul().showResult();
