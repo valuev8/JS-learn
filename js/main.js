@@ -1,22 +1,23 @@
-var maths = {
-   number: 4,
-   result: result = this.number,
-   sum: function() {
-       this.result = this.number + this.number
+var maths = function (number) {
+  var result;
+  const x = number;
+  return {
+    sum: function() {
+       result = number += x;
        return this;
    },
    minus: function() {
-       this.result = this.result - this.number
+       result = number -= x;
        return this;
    },
    mul: function() {
-       this.result = this.result * this.number
+       result = number *= x;
        return this;
    },
    showResult: function() {
-       alert(this.result)
-       return this;
+       return result;
    }
-};
+  };
+}
 
-maths.sum().sum().minus().mul().showResult();
+console.log(maths(4).sum().sum().sum().minus().mul().showResult())
