@@ -7,7 +7,7 @@
 //-------- Index --------
 
 body {
-    background: #729f98;
+    background: #333;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -15,37 +15,59 @@ body {
 
 main {
     flex: 1 0 auto;
+    position: relative;
 }
 
 nav {
-    background: #729f98;
+    background: rgba(0, 0, 0, .85);
+    color: #999;
     
     .logo {
         font-size: 25px;
+        transition: all .2s;
+        color: #999;
+        &:hover {
+            color: #fff;
+        }
+    }
+    
+    .nav-link {
+        color: #999;
+        transition: all .2s;
+        &:hover {
+            color: #fff;
+        }
+    }
+    
+    .active {
+        color: #f03102;
     }
 }
 
 .page {
     display: flex;
+    height: 100%;
     
     &__sidebar {
-        width: 15%;
+        width: 10%;
+        position: absolute;
         min-width: 100px;
-        position: fixed;
         background: #303030;
         height: 100%;
-        padding: 30px;
+        padding: 10px;
         
-        .side-menu {
-            &__item {
+        .nav {
+            height: 100%;
+            .nav-item {
                 text-align: center;
-                margin: 30px 0;
+                margin: 10px 0;
                 
                 a {
                     color: #f3f3f3;
                     transition: all .2s;
                     &:hover {
                         color: #aa863a;
+                        text-decoration: none;
                     }
                 }
             }
@@ -54,8 +76,18 @@ nav {
     
     &__inner {
         width: 100%;
-        padding-left: 15%;
         text-align: center;
+        color: #f3f3f3;
+        padding-left: 10%;
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            background: #f9482a;
+            margin: 0 auto;
+            transition: all .2s;
+            cursor: pointer;
+        }
         
         .title {
             font-size: 25px;
@@ -70,12 +102,15 @@ nav {
 .page-footer {
     background: #aa863a;
     bottom: 0;
-    padding: 20px;
-    text-align: center;
-    padding-left: 15%;
-    
-    @media (max-width: 600px) {
-        text-align: right;
-    }
+    padding: 10px;
+    text-align: center; 
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.5);
+    }
+}

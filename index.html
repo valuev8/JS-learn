@@ -11,30 +11,26 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-wrapper">
-                   <div class="container">
-                        <a href="#" class="logo">Logo</a>
-                        <ul class="right nav-menu">
-                            <li><a href="#0">Home</a></li>
-                            <li><a href="#0">About Us</a></li>
-                            <li><a href="#0">Contact Us</a></li>
-                        </ul>
-                    </div>
+            <nav class="site-header sticky-top">
+                <div class="container d-flex flex-column flex-md-row justify-content-between">
+                    <a href="#" class="logo">Logo</a>
+                    <a href="#0" class="nav-link">Home</a>
+                    <a href="#0" class="nav-link">About Us</a>
+                    <a href="#0" class="nav-link">Contact Us</a>
                 </div>
             </nav>
         </header>
         <main>
             <div class="page">
                 <div class="page__sidebar">
-                    <ul class="side-menu">
-                        <li class="side-menu__item">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
                             <a href="">First Link</a>
                         </li>
-                        <li class="side-menu__item">
+                        <li class="nav-item">
                             <a href="">Second Lind</a>
                         </li>
-                        <li class="side-menu__item">
+                        <li class="nav-item">
                             <a href="">Third Link</a>
                         </li>
                     </ul>
@@ -46,6 +42,7 @@
                     <p class="content">
                         A "Hello, World!" program is a computer program that outputs or displays "Hello, World!" to a user. Being a very simple program in most programming languages, it is often used to illustrate the basic syntax of a programming language for a working program. It is often the very first program people write when they are new to a language.
                     </p>
+                    <div class="spinner">Spin Me!</div>
                 </div>
             </div>
         </main>
@@ -56,5 +53,6 @@
                 </div>    
             </div>
         </footer>
+        <script src="js/main.js"></script>
     </body>
 </html>

@@ -3,47 +3,72 @@
 *    Name: main.scss
 *
 **/
-@import url(./lib/materialize.min.css);
+@import url(./lib/bootstrap.min.css);
 /**
 *
 *    Name: style.scss
 *
 **/
 body {
-  background: #729f98;
+  background: #333;
   display: flex;
   min-height: 100vh;
   flex-direction: column; }
 
 main {
-  flex: 1 0 auto; }
+  flex: 1 0 auto;
+  position: relative; }
 
 nav {
-  background: #729f98; }
+  background: rgba(0, 0, 0, 0.85);
+  color: #999; }
   nav .logo {
-    font-size: 25px; }
+    font-size: 25px;
+    transition: all .2s;
+    color: #999; }
+    nav .logo:hover {
+      color: #fff; }
+  nav .nav-link {
+    color: #999;
+    transition: all .2s; }
+    nav .nav-link:hover {
+      color: #fff; }
+  nav .active {
+    color: #f03102; }
 
 .page {
-  display: flex; }
+  display: flex;
+  height: 100%; }
   .page__sidebar {
-    width: 15%;
+    width: 10%;
+    position: absolute;
     min-width: 100px;
-    position: fixed;
     background: #303030;
     height: 100%;
-    padding: 30px; }
-    .page__sidebar .side-menu__item {
-      text-align: center;
-      margin: 30px 0; }
-      .page__sidebar .side-menu__item a {
-        color: #f3f3f3;
-        transition: all .2s; }
-        .page__sidebar .side-menu__item a:hover {
-          color: #aa863a; }
+    padding: 10px; }
+    .page__sidebar .nav {
+      height: 100%; }
+      .page__sidebar .nav .nav-item {
+        text-align: center;
+        margin: 10px 0; }
+        .page__sidebar .nav .nav-item a {
+          color: #f3f3f3;
+          transition: all .2s; }
+          .page__sidebar .nav .nav-item a:hover {
+            color: #aa863a;
+            text-decoration: none; }
   .page__inner {
     width: 100%;
-    padding-left: 15%;
-    text-align: center; }
+    text-align: center;
+    color: #f3f3f3;
+    padding-left: 10%; }
+    .page__inner .spinner {
+      width: 50px;
+      height: 50px;
+      background: #f9482a;
+      margin: 0 auto;
+      transition: all .2s;
+      cursor: pointer; }
     .page__inner .title {
       font-size: 25px; }
     .page__inner .content {
@@ -52,11 +77,13 @@ nav {
 .page-footer {
   background: #aa863a;
   bottom: 0;
-  padding: 20px;
-  text-align: center;
-  padding-left: 15%; }
-  @media (max-width: 600px) {
-    .page-footer {
-      text-align: right; } }
+  padding: 10px;
+  text-align: center; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1.5); }
+  100% {
+    transform: rotate(360deg) scale(1.5); } }
 
 /*# sourceMappingURL=main.css.map */
