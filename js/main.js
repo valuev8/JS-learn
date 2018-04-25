@@ -1,59 +1,31 @@
-let studentsList = [
-  {
-  name: "Ivan Petrovich",
-  start: 2000,
-  end: 2005
-  },
-  {
-  name: "Elon Musk",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Steve Jobs",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Petro Poroshenko",
-  start: 2016,
-  end: 2020
-  },
-  {
-  name: "Donald Trump",
-  start: 2010,
-  end: 2015
-  },
-  {
-  name: "Elton John",
-  start: 2000,
-  end: 2005
-  },
-  {
-  name: "Anton Valuiev",
-  start: 2015,
-  end: 2019
-  },
-  {
-  name: "Elizabeth II",
-  start: 1930,
-  end: 1935
-  },
-]
+var complexFunction = function(arg1, arg2) { 
+    return arg1 + arg2;
+ };
 
-var calcStudents = function(start,end) {
-  let result = [];
-  for (let i = 0; i < studentsList.length; i++) {
-    if (studentsList[i].start == start && studentsList[i].end == end) {
-      result.push(studentsList[i].name);
+function cache (func) {
+	let storage = {};
+  let key;
+	return function () {
+    let firstArg = arguments[0];
+    let secondArg = arguments[1];
+    let key = `${firstArg}` + `${secondArg}`;
+    let key2 = `${secondArg}` + `${firstArg}`;
+		
+    if (key in storage || key2 in storage) {
+      console.log("Found in cache");
+      return storage[key];
+    } else {
+      console.log("Calculating...");
+      let result = func(firstArg,secondArg);
+      storage[key] = result;
+      storage[key2] = result;
+      return result;
     }
   }
-  
-  if (result[0] === undefined) {
-    result = "Nobody";
-  }
-  
-  return result;
 }
 
-console.log(calcStudents(2015, 2019))
+var newFunc = cache(complexFunction);
+console.log(newFunc('foo','bar'))
+console.log(newFunc('foo','bar'))
+console.log(newFunc(100,1))
+console.log(newFunc(1,100))
