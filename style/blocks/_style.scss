@@ -7,14 +7,17 @@
 //-------- Index --------
 
 body {
-    background: #333;
+    background: #0c0c0f;
     display: flex;
+	color: #fff;
+	font-weight: 600;
     min-height: 100vh;
     flex-direction: column;
 }
 
 main {
     flex: 1 0 auto;
+	display: flex;
     position: relative;
 }
 
@@ -46,7 +49,9 @@ nav {
 
 .page {
     display: flex;
-    height: 100%;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
     
     &__sidebar {
         width: 10%;
@@ -78,16 +83,6 @@ nav {
         width: 100%;
         text-align: center;
         color: #f3f3f3;
-        padding-left: 10%;
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            background: #f9482a;
-            margin: 0 auto;
-            transition: all .2s;
-            cursor: pointer;
-        }
         
         .title {
             font-size: 25px;
@@ -96,11 +91,60 @@ nav {
         .content {
             padding: 20px;
         }
+		
+		input {
+			border-radius: 30px;
+			height: 50px;
+			margin: 20px;
+			color: #fff;
+			background: #101014;
+			outline: none;
+			padding: 0 20px;
+			&:focus {
+				&::placeholder {
+					color: transparent;
+				}
+			}
+		}
+		
+		.button {
+			#btn {
+				border: none;
+				height: 50px;
+				padding: 0 20px;
+				color: #fff;
+				font-weight: 600;
+				outline: none;
+				background: #a21d1d;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+		}
+		
+		.table-wrapper {
+			padding: 30px;
+		}
+		
+		.table {
+			margin: 20px auto;
+		  	border: 1px solid #000;
+		  	tr, 
+			td {
+				border: 1px solid #000;
+			}
+			td {
+				cursor: pointer;
+				transition: all .2s;
+				&:hover {
+					background: #a21d1d;
+				}
+			}
+		}
     }
 }
 
 .page-footer {
-    background: #aa863a;
+    background: #101014;
     bottom: 0;
     padding: 10px;
     text-align: center; 
