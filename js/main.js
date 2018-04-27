@@ -1,3 +1,5 @@
+//----- Table Generator ----- 
+
 var firstValue = document.getElementById("input1");
 var secondValue = document.getElementById("input2");
 var btn = document.getElementById("btn");
@@ -21,6 +23,8 @@ function create () {
 	}
 	document.querySelector(".table-wrapper").appendChild(table);
 };
+
+//----- Timer ----- 
 
 setInterval (function currentTime () {
 	let date = new Date();
