@@ -43,7 +43,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .page__sidebar {
     width: 10%;
     position: absolute;
@@ -107,6 +108,13 @@ nav {
       position: absolute;
       top: 20px;
       left: 20px; }
+    .page__inner .resolution {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border-radius: 30px;
+      padding: 5px 20px;
+      background: #303030; }
 
 .page-footer {
   background: #101014;
