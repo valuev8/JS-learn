@@ -163,7 +163,20 @@ nav {
     background: #101014;
     bottom: 0;
     padding: 10px;
-    text-align: center; 
+    text-align: right; 
+		&__content {
+			justify-content: flex-end;
+			width: 100%;
+			display: flex;
+			.timer {
+				margin: 0 20px;
+				cursor: default;
+				transition: all .3s;
+				&:hover {
+					color: #a21d1d;
+				}
+			}
+		}
 }
 
 @keyframes spin {
