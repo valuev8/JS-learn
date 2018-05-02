@@ -91,7 +91,7 @@ let getResolution = function () {
 		message.title = "Your resolution";
 		message.innerHTML = `${width} x ${height}`;
 		document.querySelector('.page__inner').appendChild(message);
-		// removeEl('.pageinner', '.resolution');
+		removeEl('.page__inner', '.resolution');
 	},1000);;
 };
 
@@ -99,7 +99,7 @@ function removeEl (parent, child) {
 	return setTimeout(function(){
 		let removedItem = document.querySelector(child);
 		document.querySelector(parent).removeChild(removedItem);
-	}, 2000)
+	}, 5000)
 }
 
 window.addEventListener('resize', getResolution);
