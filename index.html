@@ -10,41 +10,63 @@
         <link rel="stylesheet" type="text/css" href="./style/main.css" />
     </head>
     <body>
+    
+    	<!--- Header --->
+       
         <header>
             <nav class="site-header sticky-top">
-                <div class="container d-flex flex-column flex-md-row justify-content-between">
-                    <a href="#" class="logo">Logo</a>
+                <div class="container d-flex flex-md-row justify-content-between">
                     <a href="#0" class="nav-link">Home</a>
-                    <a href="#0" class="nav-link">About Us</a>
-                    <a href="#0" class="nav-link">Contact Us</a>
+                    <a href="#0" class="nav-link">My Profile</a>
+                    <a href="#0" class="nav-link">Contacts</a>
                 </div>
             </nav>
         </header>
+        
+        <!--- Main --->
+        
         <main>
             <div class="page">
+               	<div class="page__sidebar">
+               	    <button class="ui-button tablink" id="table-btn">Table Generator</button>
+                    <button class="ui-button tablink" id="slider-btn">Slider</button>
+               	</div>
                 <div class="page__inner" id="main">
-                    <div class="title">
-                        <p>Make a Table online for free and without registration!!!</p>
+                   	<div class="table-generator tab" id="table-generator">
+                        <div class="title">
+                            <p>Make a Table online for free and without registration!!!</p>
+                        </div>
+                        <input type="text" id="input1" placeholder="Write amount of rows">
+                        <input type="text" id="input2" placeholder="Write amount of datas">
+                        <div class="button">
+                        <button id="btn" onclick="create()">Do It!</button>
+                        </div>
+                        <div class="table-wrapper"></div>
                     </div>
-                    <input type="text" id="input1" placeholder="Write amount of rows">
-                    <input type="text" id="input2" placeholder="Write amount of datas">
-                    <div class="button">
-                    <button id="btn" onclick="create()">Do It!</button>
+                    <div class="slider-wrapper tab" id="wrapper">
+                        <div class="slider">
+                            <div class="slide"><img src="./images/img10.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img9.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img8.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img11.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img7.jpg" alt="image"></div>
+                        </div>
+                        <button id="prev">Previous</button>
+                        <button id="next">Next</button>
                     </div>
-                    <div class="table-wrapper"></div>
-                    <div class="time" id="time"></div>
                 </div>
             </div>
         </main>
+        
+        <!--- Footer --->
+        
         <footer class="page-footer">
-            <div class="container">
-               <div class="page-footer__content">
-               	You are on this page for
+           <div class="page-footer__content">
+                You are on this page for
                 <div class="timer" id="timer">
-                	00 : 00 : 00
+                    00 : 00 : 00
                 </div>
-							</div>  
-            </div>
+            </div>  
         </footer>
         <script src="js/main.js"></script>
     </body>
