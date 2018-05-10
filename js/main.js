@@ -189,39 +189,102 @@ window.addEventListener('keydown', function(event) {
 
 //----- Slider -----
 
-function slider(el) {
+function Slider(el, options) {
     let slider = el.querySelector('.slider');
     let slides = slider.querySelectorAll('.slide');
-    let step = 0;
+    let i = 0;
+    let step = 100;
+//  	let dotsArr; in process.....
+    let animationInProgress = true;
+  	let infinite = options.infinite;
+  	let cloneFirst = slides[0].cloneNode(true);
+    let cloneLast = slider.lastElementChild.cloneNode(true);
+    let animationCompleted = function () {
+        animationInProgress = true
+    }
+    
+    slider.addEventListener('transitionend', animationCompleted);
+    slider.appendChild(cloneFirst);
+    slider.insertBefore(cloneLast, slider.firstElementChild);
+ 	slider.style.transform = `translateX(-${step}%)`;
+  	let self = this;
+  
+//  	(function pagination() { // In Process....
+//	  let pagination = document.createElement('div');
+//	  let dot;
+//	  pagination.className = "slider-pagination";
+//	  for (let i = 0; i < slides.length; i++) {
+//		dot = document.createElement('span');
+//		dot.className = "slider-dot";
+//	  	pagination.appendChild(dot);
+//	  };
+//	  el.appendChild(pagination);
+//	  dotsArr = pagination.querySelectorAll('.slider-dot');
+//	})();
+  
+	function showFirstSlide() {
+		slider.style.transition = `transform 0s`;
+		i = 0;
+		step = 100;
+		slider.style.transform = `translateX(-${step}%)`;
+	}
+  
+  	function showLastSlide() {
+		slider.style.transition = `transform 0s`;
+		i = slides.length - 1;
+		step = 100 * slides.length;
+		slider.style.transform = `translateX(-${step}%)`;
+	}
+  
     this.next = function (){
-        step++;
-        for (let i = 0; i < slides.length; i++) {
-            if (step >= slides.length) {
-                slides[i].style.transform = `translateX(0)`
-                step = 0;
-                continue;
-            }
-            slides[i].style.transform = `translateX(-${step}00%)`;
+        if (animationInProgress == true) {
+			slider.removeEventListener('transitionend', showFirstSlide);
+		  	slider.removeEventListener('transitionend', showLastSlide);
+			animationInProgress = false;
+			step += 100;
+			slider.style.transition = `transform 1s`;
+			slider.style.transform = `translateX(-${step}%)`;
+			i++;
+		  
+		  if (i >= slides.length) {
+		  	  animationInProgress = false;
+			  slider.addEventListener('transitionend', showFirstSlide);
+          	}
         }
     }
-    this.prev = function (){
-        let slides = slider.querySelectorAll('.slide');
-        step--;
-        for (let i = 0; i < slides.length; i++) {
-            if (step < 0) {
-                step = slides.length - 1;
-                slides[i].style.transform = `translateX(-${step}00%)`
-                continue;
-            }
-            slides[i].style.transform = `translateX(-${step}00%)`;
-        }
+        
+    this.prev = function (){	
+       if (animationInProgress == true) {
+		   slider.removeEventListener('transitionend', showFirstSlide);
+		   slider.removeEventListener('transitionend', showLastSlide);
+		   animationInProgress = false;
+		   step -= 100;
+		   slider.style.transition = `transform 1s`;
+		   slider.style.transform = `translateX(-${step}%)`;
+		   i--;
+		 if (i <= -1) {
+		  	  animationInProgress = false;
+			  slider.addEventListener('transitionend', showLastSlide);
+          	}
+        } 
     }
+	
+	if (infinite) {
+	  setInterval(function(){
+		if (el.style.display === "block") {
+		  animationInProgress = true;
+		  self.next();
+		}
+	  }, 2000);
+	}
 }
 
 let wrapper = document.getElementById("wrapper");
 let next = document.getElementById("next");
 let prev = document.getElementById("prev");
-let test = new slider(wrapper);
+let test = new Slider(wrapper, {
+  infinite: true
+});
 next.addEventListener('click', test.next);
 prev.addEventListener('click', test.prev);
 
@@ -256,3 +319,4 @@ tableBtn.click();
 sliderBtn.addEventListener('click', function () {
     return tabs(event, sliderWrapper);
 });
+
