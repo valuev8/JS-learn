@@ -28,30 +28,71 @@
         <main>
             <div class="page">
                	<div class="page__sidebar">
-               	    <button class="ui-button tablink" id="table-btn">Table Generator</button>
-                    <button class="ui-button tablink" id="slider-btn">Slider</button>
+               	    <button class="ui-button tablink" id="promise-test">Promise Test1</button>
+                    <button class="ui-button tablink" id="promise-test2">Promise Test2</button>
                	</div>
                 <div class="page__inner" id="main">
-                   	<div class="table-generator tab" id="table-generator">
-                        <div class="title">
-                            <p>Make a Table online for free and without registration!!!</p>
-                        </div>
-                        <input type="text" id="input1" placeholder="Write amount of rows">
-                        <input type="text" id="input2" placeholder="Write amount of datas">
-                        <div class="button">
-                        <button id="btn" onclick="create()">Do It!</button>
-                        </div>
-                        <div class="table-wrapper"></div>
-                    </div>
-                    <div class="slider-wrapper tab" id="wrapper">
-                        <div class="slider">
-                            <div class="slide"><img src="./images/img10.jpg" alt="image"></div>
-                            <div class="slide"><img src="./images/img9.jpg" alt="image"></div>
-                            <div class="slide"><img src="./images/img8.jpg" alt="image"></div>
-                        </div>
-                        <button id="prev">Previous</button>
-                        <button id="next">Next</button>
-                    </div>
+                	<div class="promise-test tab" id="pt1">
+                		<div class="progress-bar">
+							<div class="indicator"></div>
+						</div>
+               			<div class="ui-button">Kill</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img10.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img11.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img8.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img9.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                	</div>
+                	<div class="promise-test tab" id="pt2">
+                		<div class="progress-bar">
+							<div class="indicator"></div>
+						</div>
+               			<div class="ui-button">Kill</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img11.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img7.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                		<div class="item">
+                			<h2>Header</h2>
+                			<div class="item__content">
+                				<img src="./images/img10.jpg" alt="img">
+                				<p class="text">A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+                			</div>
+                		</div>
+                	</div>
                 </div>
             </div>
         </main>
@@ -59,12 +100,6 @@
         <!--- Footer --->
         
         <footer class="page-footer">
-           <div class="page-footer__content">
-                You are on this page for
-                <div class="timer" id="timer">
-                    00 : 00 : 00
-                </div>
-            </div>  
         </footer>
         <script src="js/main.js"></script>
     </body>
