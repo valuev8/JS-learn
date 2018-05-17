@@ -112,6 +112,7 @@ function create () {
 		let min = `${currentDate.getMinutes()} min `;
 		let sec = `${currentDate.getSeconds()} sec `;
 		let currentArr = [dd,mm,yyyy,hours,min, sec];
+	  	console.log(parseInt(min));
 		
 		for (let i = 0; i < time.childNodes.length; i++) {
 			if (parseInt(time.childNodes[i].innerHTML) !== parseInt(currentArr[i])) {
@@ -233,6 +234,7 @@ function Slider(el, options) {
     let slides = slider.querySelectorAll('.slide');
     let i = 0;
     let step = 100;
+  	this.interval;
 //  	let dotsArr; in process.....
     let animationInProgress = true;
   	let infinite = options.infinite;
@@ -309,12 +311,12 @@ function Slider(el, options) {
     }
 	
 	if (infinite) {
-	  setInterval(function(){
+	  this.interval = setInterval(function(){
 		if (el.style.display === "block") {
 		  animationInProgress = true;
 		  self.next();
 		}
-	  }, 2000);
+	  }, 3000);
 	}
 }
 
@@ -324,8 +326,14 @@ let prev = document.getElementById("prev");
 let test = new Slider(wrapper, {
   infinite: true
 });
-next.addEventListener('click', test.next);
-prev.addEventListener('click', test.prev);
+next.addEventListener('click', function(){
+  clearTimeout(test.interval);
+  test.next();
+});
+prev.addEventListener('click', function(){
+  clearTimeout(test.interval);
+  test.prev();
+});
 
 //----- Promise Constructor -----
 
@@ -334,12 +342,13 @@ function HideElements(itemArr, opt) {
 	let flag = true;
 	let promise;
 	let simultaneously = opt.simultaneously;
+  
 	this._hide = function(el) {
 		let node = el.getElementsByTagName('*');
 		let lastNode = node.length - 1;
 		let promise1 = new Promise((resolve, reject) => {
 			resolve(node[lastNode].style.transform = "scale3d(0,0,0)",
-				   node[lastNode].style.height = "0");
+			node[lastNode].style.height = "0");
 		})
 		
 		function hideEl(el){
@@ -368,7 +377,7 @@ function HideElements(itemArr, opt) {
 		promise = new Promise((resolve, reject) => {
 			resolve(self._hide(itemArr[0]));
 		})
-		if (simultaneously) {
+		if (simultaneously === true) {
 			for (let i = 0; i < itemArr.length; i++) {
 				promise.then(self._hide(itemArr[i]));
 				flag = true;
@@ -389,7 +398,9 @@ function HideElements(itemArr, opt) {
 let item = pt1.querySelectorAll(".item");
 let button = pt1.querySelector(".ui-button");
 let progressBar = pt1.querySelector(".indicator");
-let hideConsecutive = new HideElements(item, {simultaneously: false});
+let hideConsecutive = new HideElements(item,{
+  simultaneously: false,
+});
 
 button.addEventListener('click', function(){
 	progressBar.style.width = "100%";
@@ -406,7 +417,9 @@ progressBar.addEventListener('transitionend', function(){
 let item = pt2.querySelectorAll(".item");
 let button = pt2.querySelector(".ui-button");
 let progressBar = pt2.querySelector(".indicator");
-let hideConsecutive = new HideElements(item, {simultaneously: true});
+let hideConsecutive = new HideElements(item, {
+  simultaneously: true,
+});
 
 button.addEventListener('click', function(){
 	progressBar.style.width = "100%";
