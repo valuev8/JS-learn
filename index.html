@@ -15,7 +15,7 @@
        
         <header>
             <nav class="site-header sticky-top">
-                <div class="container d-flex flex-md-row justify-content-between">
+                <div class="d-flex flex-md-row justify-content-between">
                     <a href="#0" class="nav-link">Home Work</a>
                     <div class="time" id="time"></div>
                 </div>
@@ -27,10 +27,32 @@
         <main>
             <div class="page">
                	<div class="page__sidebar">
+              	    <button class="ui-button tablink" id="table-btn">Table Generator</button>
+                    <button class="ui-button tablink" id="slider-btn">Slider</button>
                	    <button class="ui-button tablink" id="promise-test">Promise Test1</button>
                     <button class="ui-button tablink" id="promise-test2">Promise Test2</button>
                	</div>
                 <div class="page__inner" id="main">
+                	<div class="table-generator tab" id="table-generator">
+                        <div class="title">
+                            <p>Make a Table online for free and without registration!!!</p>
+                        </div>
+                        <input type="text" id="input1" placeholder="Write amount of rows">
+                        <input type="text" id="input2" placeholder="Write amount of datas">
+                        <div class="button">
+                        <button id="btn" onclick="create()">Do It!</button>
+                        </div>
+                        <div class="table-wrapper"></div>
+                    </div>
+                    <div class="slider-wrapper tab" id="wrapper">
+                        <div class="slider">
+                            <div class="slide"><img src="./images/img10.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img9.jpg" alt="image"></div>
+                            <div class="slide"><img src="./images/img8.jpg" alt="image"></div>
+                        </div>
+                        <button id="prev">Previous</button>
+                        <button id="next">Next</button>
+                    </div>
                 	<div class="promise-test tab" id="pt1">
                 		<div class="progress-bar">
 							<div class="indicator"></div>
@@ -99,6 +121,12 @@
         <!--- Footer --->
         
         <footer class="page-footer">
+        	<div class="page-footer__content">
+                You are on this page for
+                <div class="timer" id="timer">
+                    00 : 00 : 00
+                </div>
+            </div>
         </footer>
         <script src="js/main.js"></script>
     </body>
