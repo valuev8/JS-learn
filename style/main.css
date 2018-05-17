@@ -44,6 +44,11 @@ nav {
   nav .active {
     color: #f03102; }
 
+.time {
+  color: #fff;
+  padding: 10px 25px;
+  width: 320px; }
+
 .page {
   padding-top: 40px;
   display: flex;
