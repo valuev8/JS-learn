@@ -4,6 +4,7 @@
 *
 **/
 @import url(./lib/bootstrap.min.css);
+@import url(./lib/fontawesome-all.min.css);
 /**
 *
 *    Name: style.scss
@@ -22,25 +23,45 @@ main {
   display: flex;
   position: relative; }
 
-header {
-  position: fixed;
-  width: 100%;
-  z-index: 99; }
+.header {
+  align-items: center;
+  min-height: 130px; }
 
 nav {
   background: #000;
   color: #999; }
-  nav .logo {
-    font-size: 25px;
-    transition: all .2s;
-    color: #999; }
-    nav .logo:hover {
-      color: #fff; }
-  nav .nav-link {
-    color: #999;
-    transition: all .2s; }
-    nav .nav-link:hover {
-      color: #fff; }
+  nav .forecast {
+    display: flex;
+    align-items: center; }
+    nav .forecast p {
+      margin: 0;
+      padding: 0 30px; }
+    nav .forecast #getData {
+      background: #101014;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s;
+      cursor: pointer; }
+      nav .forecast #getData:focus {
+        outline: none; }
+      nav .forecast #getData:hover {
+        background: #0074c9; }
+    nav .forecast .weather {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0; }
+      nav .forecast .weather img {
+        width: 50px;
+        height: 50px; }
+      nav .forecast .weather__conditions {
+        text-transform: capitalize; }
   nav .active {
     color: #f03102; }
 
@@ -50,7 +71,6 @@ nav {
   width: 320px; }
 
 .page {
-  padding-top: 40px;
   display: flex;
   width: 100%;
   position: relative; }
@@ -233,5 +253,38 @@ nav {
     opacity: 0; }
   to {
     opacity: 1; } }
+#searchTextField {
+  border-radius: 3px;
+  height: 50px;
+  margin: 20px;
+  color: #fff;
+  background: #101014;
+  outline: none;
+  border: none;
+  padding: 0 20px;
+  transition: all .3s; }
+  #searchTextField:focus {
+    background: #1f1f23; }
+    #searchTextField:focus::placeholder {
+      color: transparent; }
+
+.pac-logo {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background: #303030;
+  font-size: 14px;
+  border-radius: 3px; }
+  .pac-logo::after {
+    display: none; }
+  .pac-logo .pac-item {
+    transition: all .3s;
+    padding: 6px 5px;
+    cursor: pointer;
+    font-size: 12px; }
+    .pac-logo .pac-item:hover {
+      background: #0074c9; }
+    .pac-logo .pac-item .pac-item-query {
+      font-size: 14px;
+      color: #fff;
+      margin-right: 10px; }
 
 /*# sourceMappingURL=main.css.map */

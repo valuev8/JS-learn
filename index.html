@@ -14,9 +14,16 @@
     	<!--- Header --->
        
         <header>
-            <nav class="site-header sticky-top">
-                <div class="d-flex flex-md-row justify-content-between">
-                    <a href="#0" class="nav-link">Home Work</a>
+            <nav class="site-header">
+                <div class="d-flex flex-md-row justify-content-between header">
+                    <div class="forecast" id="forecast">
+                        <p>Current Weather in:</p>
+                        <input id="searchTextField" placeholder="Enter your location" type="text"/>
+                        <button id="getData">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="weather"></div>
+                    </div>
                     <div class="time" id="time"></div>
                 </div>
             </nav>
@@ -128,6 +135,7 @@
                 </div>
             </div>
         </footer>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0vF__mxwm7iMVaD1IgY7unD2-CnJbVnM&libraries=places"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

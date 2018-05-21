@@ -112,8 +112,6 @@ function create () {
 		let min = `${currentDate.getMinutes()} min `;
 		let sec = `${currentDate.getSeconds()} sec `;
 		let currentArr = [dd,mm,yyyy,hours,min, sec];
-	  	console.log(parseInt(min));
-		
 		for (let i = 0; i < time.childNodes.length; i++) {
 			if (parseInt(time.childNodes[i].innerHTML) !== parseInt(currentArr[i])) {
 				time.childNodes[i].innerHTML = currentArr[i];
@@ -430,4 +428,63 @@ progressBar.addEventListener('transitionend', function(){
 });
 }
 
+//----- Autocomplete -----
 
+let autocomplete;
+let weather = document.querySelector('.weather');
+let button = document.getElementById("getData");
+(function initialize() {
+	var input = document.getElementById('searchTextField');
+	autocomplete = new google.maps.places.Autocomplete(input)
+})()
+
+//----- Weather HTTP Request -----
+
+google.maps.event.addDomListener(button, 'click', function(){
+  
+  if (!autocomplete.getPlace()) {
+      cleanAll();
+      var error = document.createElement("p");
+      error.className = "weather__error";
+      error.innerHTML = "Месторасположение не найдено!";
+      weather.appendChild(error);
+      return;
+    }
+  
+    function cleanAll (){
+        if (weather.children.length > 0) {
+            while (weather.firstChild) {
+                weather.removeChild(weather.firstChild);
+            }
+        } 
+    }
+  
+    cleanAll();
+    let lng = autocomplete.getPlace().geometry.location.lng();
+    let lat = autocomplete.getPlace().geometry.location.lat();
+    
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&lang=ru&units=metric&APPID=ce7e4cb737aaf2517c53cc7df9409ff9`)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data) {
+        let conditions = document.createElement('p');
+        let icon = document.createElement('img');
+        let temp = document.createElement('p');
+        temp.className = "weather__temp"
+        icon.className = "weather__icon";
+        conditions.className = "weather__conditions";
+        icon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+        temp.innerHTML = `Температура: ${Math.round(data.main.temp)} С`;
+        conditions.innerHTML = `На улице: ${data.weather[0].description}`;
+        weather.appendChild(icon);
+        weather.appendChild(temp);
+        weather.appendChild(conditions);
+    })
+    .catch(function(response){
+      let error = document.createElement("p");
+      error.className = "weather__error";
+      error.innerHTML = `Данные не найдены!`;
+      weather.appendChild(error);
+    })
+});
