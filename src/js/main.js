@@ -440,6 +440,7 @@ let button = document.getElementById("getData");
 
 //----- Weather HTTP Request -----
 
+
 google.maps.event.addDomListener(button, 'click', function(){
   
   if (!autocomplete.getPlace()) {
@@ -480,6 +481,10 @@ google.maps.event.addDomListener(button, 'click', function(){
         weather.appendChild(icon);
         weather.appendChild(temp);
         weather.appendChild(conditions);
+        localStorage.clear();
+        localStorage.setItem(`icon`,`${data.weather[0].icon}`)
+        localStorage.setItem(`temp`,`${Math.round(data.main.temp)}`)
+        localStorage.setItem(`conditions`,`${data.weather[0].description}`)
     })
     .catch(function(response){
       let error = document.createElement("p");
@@ -488,3 +493,20 @@ google.maps.event.addDomListener(button, 'click', function(){
       weather.appendChild(error);
     })
 });
+
+//----- Weather from localStorage -----
+
+if (localStorage.length > 0) {
+    let conditions = document.createElement('p');
+    let icon = document.createElement('img');
+    let temp = document.createElement('p');
+    temp.className = "weather__temp"
+    icon.className = "weather__icon";
+    conditions.className = "weather__conditions";
+    icon.src = `http://openweathermap.org/img/w/${localStorage.getItem(`icon`)}.png`;
+    temp.innerHTML = `Температура: ${localStorage.getItem(`temp`)} С`;
+    conditions.innerHTML = `На улице: ${localStorage.getItem(`conditions`)}`;
+    weather.appendChild(icon);
+    weather.appendChild(temp);
+    weather.appendChild(conditions);
+}
